@@ -1,5 +1,5 @@
 .title {
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: bold;
     margin-bottom: 10px;
     border-bottom: 1px solid burlywood;
@@ -7,7 +7,7 @@
     width: 100%;
 }
 .text1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: #333;
     margin: 10px 0;
     text-align: center;

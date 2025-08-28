@@ -10,57 +10,49 @@ import beans from './Images/beans.jpg';
 
 
 export default function FoodMenu({handleAdd, handleDelete}) {
+  
+  const menu = [{
+    name: 'Jollof Rice And Plantain 🌚',
+    price: 6900,
+    image: jollofRice
+  }, {
+    name: 'Fried Rice And Chicken 🥹',
+    price: 9700,
+    image: friedRice
+  }, {
+    name: 'Amala and Efo 🤤',
+    price: 3500,
+    image: amala
+  }, {
+    name: 'Garri and Fish 😚',
+    price: 8000,
+    image: garri
+  }, {
+    name: 'Hausa Suya With Onions 🙂‍↕️',
+    price: 2000,
+    image: suya
+  }, {
+    name: 'Beans And Plantain🤪',
+    price: 3500,
+    image: beans
+  }]
 
 
   return (
     <div className={styles.foodMenu_container}>
-    <div className={styles.foodMenu_box}>
-      <h1 className={styles.title}>Amala and Efo 🌚</h1>
-     <img src={amala} alt="" className={styles.image1}/>
-        <p className={styles.price}>Price: ₦3500</p>
-        <button  className={styles.add} onClick={handleAdd}>Add Order</button>
-        <button className={styles.remove} onClick={handleDelete}>Remove Order</button>
+      {menu.map((item, index) => (
+    <div className={styles.foodMenu_box} key={index}>
+      <h1 className={styles.title}>{item.name}</h1>
+     <img src={item.image} alt={item.name} className={styles.image1}/>
+        <p className={styles.price}>Price: ₦{item.price}</p>
+        <div className={styles.button_container}>
+        <button  className={styles.add} onClick={() => handleAdd(item)} >Add Order</button>
+        <button className={styles.remove} onClick={() => handleDelete(item)}>Remove Order</button>
+        </div>
     </div>
+      ))}
+
     
-    <div className={styles.foodMenu_box}>
-      <h1 className={styles.title}>Jollof Rice And Moimoi 🥺</h1>
-     <img src={jollofRice} alt="" className={styles.image2} />
-        <p className={styles.price}>Price: ₦6900</p>
-        <button className={styles.add} onClick={handleAdd}>Add Order</button>
-        <button className={styles.remove} onClick={handleDelete}>Remove Order</button>
-    </div>
-
-    <div className={styles.foodMenu_box}>
-      <h1 className={styles.title}>Garri Floating Berries And Meat 🥹</h1>
-     <img src={garri} alt="" className={styles.image3} />
-        <p className={styles.price}>Price: ₦8000</p>
-        <button className={styles.add} onClick={handleAdd}>Add Order</button>
-        <button className={styles.remove} onClick={handleDelete}>Remove Order</button>
-    </div>
-
-    <div className={styles.foodMenu_box}>
-      <h1 className={styles.title}>Fried Rice and Cosglow 😮‍💨</h1>
-     <img src={friedRice} alt="" className={styles.image4} />
-        <p className={styles.price}>Price: ₦9700</p>
-        <button className={styles.add} onClick={handleAdd}>Add Order</button>
-        <button className={styles.remove} onClick={handleDelete}>Remove Order</button>
-    </div>
-
-    <div className={styles.foodMenu_box}>
-      <h1 className={styles.title}>Hausa Suya 😏</h1>
-     <img src={suya} alt="" className={styles.image5} />
-        <p className={styles.price}>Price: ₦2000</p>
-        <button className={styles.add} onClick={handleAdd}>Add Order</button>
-        <button className={styles.remove} onClick={handleDelete}>Remove Order</button>
-    </div>
-
-    <div className={styles.foodMenu_box}>
-      <h1 className={styles.title}>Beans And Crunchy Plantain 😯</h1>
-     <img src={beans} alt="" className={styles.image6} />
-        <p className={styles.price}>Price: ₦3500</p>
-        <button className={styles.add} onClick={handleAdd}>Add Order</button>
-        <button className={styles.remove} onClick={handleDelete}>Remove Order</button>
-    </div>
     </div>
   );
 }
