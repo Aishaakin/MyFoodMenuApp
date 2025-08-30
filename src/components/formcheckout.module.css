@@ -1,0 +1,57 @@
+body.active-modal {
+    overflow-y: hidden;
+}
+.title {
+    color: black;
+}
+.checkout_btn {
+margin-top: 1rem;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  display: block;
+  margin-left: 11rem;
+  border-radius: 10px;
+}
+input {
+
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid wheat;
+    outline: none;
+    border-radius: 5px;
+    width: 50%;
+}
+input:focus {
+    border-color: #66afe9; 
+    box-shadow: 0 0 5px rgba(247, 247, 246, 0.5); 
+}
+
+label {
+  width: 100px; 
+  text-align: right;
+  margin-right: 10px; 
+}
+
+.modal, .overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+.overlay {
+    background: rgba(49, 49, 49, 0.8);
+}
+.modal_content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+}
+

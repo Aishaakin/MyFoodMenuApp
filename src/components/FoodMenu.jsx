@@ -9,7 +9,7 @@ import beans from './Images/beans.jpg';
 
 
 
-export default function FoodMenu({handleAdd, handleDelete}) {
+export default function FoodMenu({handleAdd, handleDelete, cart}) {
   
   const menu = [{
     name: 'Jollof Rice And Plantain 🌚',
@@ -36,7 +36,7 @@ export default function FoodMenu({handleAdd, handleDelete}) {
     price: 3500,
     image: beans
   }]
-
+console.log(cart)
 
   return (
     <div className={styles.foodMenu_container}>
@@ -47,7 +47,10 @@ export default function FoodMenu({handleAdd, handleDelete}) {
         <p className={styles.price}>Price: ₦{item.price}</p>
         <div className={styles.button_container}>
         <button  className={styles.add} onClick={() => handleAdd(item)} >Add Order</button>
-        <button className={styles.remove} onClick={() => handleDelete(item)}>Remove Order</button>
+        <button className={styles.remove} onClick={() => handleDelete(item)}
+        disabled={!cart.find((each) => each.name === item.name)}
+        // disabled={!cart.some(cartItem => cartItem.name === item.name )}  
+          >Remove Order</button>
         </div>
     </div>
       ))}

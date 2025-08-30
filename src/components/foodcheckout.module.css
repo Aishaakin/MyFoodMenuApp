@@ -13,24 +13,13 @@
   border-radius: 8px;
   margin-bottom: 16px;
 }
-.checkout_price {
-  font-size: 24px;
-  color: #28c5b0;
-  margin-bottom: 16px;
-}
-.checkout_total {
-  color: #28c5b0;
-}
-.checkout_button {
-  background-color: #28c5b0;
-  color: white;
-  padding: 12px 24px;
+.checkout_btn {
+  background-color: #57db57;
+  color: rgb(44, 43, 43);
+  padding: 14px 24px;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
-}
-.checkout_box:hover .checkout_button {
-  background-color: #20a39e;
 }
 .checkout_quantity {
   font-size: 18px;
@@ -49,8 +38,14 @@
 .summary_container {
   margin-top: 20px;
   padding: 10px;
-  border-top: 2px solid #ccc;
+  border-top: 2px solid rgb(243, 207, 159);
   font-weight: bold;
   display: flex;
   justify-content: space-between;
+}
+button {
+  margin-bottom: 20px;
+}
+body.active-modal {
+    overflow-y: hidden;
 }

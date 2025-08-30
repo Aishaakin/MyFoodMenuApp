@@ -5,6 +5,8 @@ import './App.css'
 import Search from './components/Search'
 import FoodMenu from './components/FoodMenu'
 import FoodCheckout from './components/FoodCheckout'
+import FormCheckout from './components/FormCheckout'
+
 
 // Create a div that renders our cart
 // cart contains - name of food, price, quantity, total price
@@ -23,11 +25,24 @@ function App() {
   const [price, setPrice] = useState(0)
     const [cart, setCart] = useState([]);
   const [checkoutList, setCheckoutList] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // function handleAdd(item) {
-  //   const updatedItem = {...item, quantity: 1}
-  //   setCart([...cart, updatedItem]);
-  // }
+ const handleCheckoutClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const userDetails = Object.fromEntries(formData.entries());
+    console.log('Order confirmed:', userDetails);
+    setIsModalOpen(false);
+  };
+
 function handleAdd(itemToAdd) {
   setCart(prevCart => {
     const existingItem = prevCart.find(item => item.name === itemToAdd.name);
@@ -61,11 +76,12 @@ function handleDelete(itemToDelete) {
 }
 const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
 const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-   
+
   return <div  className="container">
     <Search />
-    <FoodCheckout cart={cart} setCart={setCart} />
-    <FoodMenu food={userInput} handleAdd={handleAdd} handleDelete={handleDelete} />
+    <FoodCheckout cart={cart} setCart={setCart} handleAdd={handleAdd} handleDelete={handleDelete}/>
+    <FoodMenu food={userInput} handleAdd={handleAdd} handleDelete={handleDelete} cart={cart} />
+    <FormCheckout isOpen={isModalOpen} onClose={handleCloseModal} onSubmit={handleFormSubmit} />
     <h2>Orders: {totalQuantity}</h2>
     <h2>Checkout: {totalPrice}</h2>
   </div>

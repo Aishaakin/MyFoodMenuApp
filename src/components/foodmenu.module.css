@@ -53,6 +53,15 @@ border-radius: 15px !important;
     background-color: rgb(255, 153, 153);
 }
 .button_container {
- gap: 10px;
- padding: 10px;
+ display: flex;
+ flex-direction: row;
+ justify-content: space-around;
+}
+
+button:disabled {
+opacity: 0.6;
+cursor: not-allowed;
+background-color:  rgb(255, 155, 155);
+color: white;
+border: 1px solid red;
 }
